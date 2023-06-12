@@ -14,6 +14,7 @@ public class RegistrarNotas {
         ordenarNotas(notas);
         promedioNotas(alumnos,notas);
         notaMayoryMenor(alumnos,notas);
+        mostrarAlumnos(alumnos,notas);
     }
 
     public static void registrarNotas(String[] alumnos, double[][] notas, Scanner teclado) {
@@ -56,7 +57,7 @@ public class RegistrarNotas {
             mostrarMensaje("----------------------------------------------------------------------------------------------------------------------------");
             mostrarMensaje("Alumno: "+alumnos[i]);
 
-            for (int j=0;j<notas.length;j++) {
+            for (int j=0;j<notas[i].length;j++) {
 
                 promedio +=  notas[i][j];
             }
@@ -64,6 +65,7 @@ public class RegistrarNotas {
             System.out.printf("Promedio: %.2f \n",(promedio / notas[i].length));
             mostrarMensaje("----------------------------------------------------------------------------------------------------------------------------");
         }
+
     }
 
     public static void notaMayoryMenor(String[] alumnos, double[][] notas) {
@@ -75,9 +77,9 @@ public class RegistrarNotas {
 
         for(int i=1; i<notas.length;i++) {
 
-            if(notas[i][notas[0].length-1] > max) {
+            if(notas[i][notas[i].length-1] > max) {
 
-                max = notas[i][notas[0].length-1];
+                max = notas[i][notas[i].length-1];
                 alumnoNotaMax = alumnos[i];
 
             } else if (notas[i][0] < min) {
@@ -92,6 +94,19 @@ public class RegistrarNotas {
         mostrarMensaje("----------------------------------------------------------------------------------------------------------------------------");
     }
 
+    public  static void mostrarAlumnos(String[] alumnos, double[][] notas){
+
+        for (int i=0; i<alumnos.length;i++) {
+
+            mostrarMensaje("----------------------------------------------------------------------------------------------------------------------------");
+            mostrarMensaje("Alumno : " + alumnos[i]);
+
+            for (int j=0; j<notas[i].length;j++) {
+
+                mostrarMensaje("Nota "+(j+1)+" : "+ notas[i][j]);
+            }
+        }
+    }
     public static void mostrarMensaje(String mensaje) {
         System.out.println(mensaje);
     }
