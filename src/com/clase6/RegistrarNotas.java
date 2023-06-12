@@ -7,8 +7,8 @@ public class RegistrarNotas {
 
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
-        String[] alumnos = new String[3];
-        double[][] notas = new double[3][];
+        String[] alumnos = new  String[3] ;
+        double[][] notas = new double[alumnos.length][] ;
 
         registrarNotas(alumnos,notas,teclado);
         ordenarNotas(notas);
@@ -19,16 +19,11 @@ public class RegistrarNotas {
     public static void registrarNotas(String[] alumnos, double[][] notas, Scanner teclado) {
 
         int cantidadNotas;
-        int cantidadAlumnos;
-
-        mostrarMensaje("Por favor ingresa la cantidad de alumnos que vas a registrar");
-        cantidadAlumnos = teclado.nextInt();
-        mostrarMensaje("----------------------------------------------------------------------------------------------------------------------------");
 
         mostrarMensaje("Por favor ingresa la cantidad de notas que vas a registrar");
         cantidadNotas = teclado.nextInt();
 
-        for(int i=0;i<cantidadAlumnos;i++) {
+        for(int i=0;i<3;i++) {
 
             notas[i] = new double[cantidadNotas];
 
